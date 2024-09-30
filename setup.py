@@ -57,10 +57,11 @@ __gitsha__ = '{}'
 version_info = ({})
 """
     sha = get_hash()
-    with open('VERSION', 'r') as f:
-        SHORT_VERSION = f.read().strip()
+    try:
+        with open('VERSION', 'r') as f:
+            SHORT_VERSION = f.read().strip()
     except:
-	print(error)
+        print(error)
         SHORT_VERSION = '0.1.0'#f.read().strip()
     VERSION_INFO = ', '.join([x if x.isdigit() else f'"{x}"' for x in SHORT_VERSION.split('.')])
 
